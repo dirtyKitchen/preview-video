@@ -1,14 +1,18 @@
-import { useState, useEffect } from "react"
+import React, {useState, useEffect} from 'react'
 
 function App() {
-  const [hoverd, setHoverd] = useState(false);
-  
-  useEffect(() => { 
-    console.log("Hovered")
-  },[hoverd])
+
+  const [ctime, setCtime] = useState(0);
+
+  useEffect(() => {
+    const myvideo = document.querySelector(".buddyVideo")
+    console.log(myvideo.currentTime)
+    setCtime(ctime + 20);
+  },[ctime])
+
   return (
     <>
-      <video onMouseOver={() => {setHoverd(true)}}
+      <video className="buddyVideo" controls onMouseOver={() => setCtime(ctime + 20)}
         src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
         poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
         width="1000">

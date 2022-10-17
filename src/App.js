@@ -1,17 +1,18 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 
 function App() {
 
   const [ctime, setCtime] = useState(0);
-
   useEffect(() => {
+    const center = document.querySelector(".testClass")
     const myvideo = document.querySelector(".buddyVideo")
-    console.log(myvideo.currentTime)
-    setCtime(ctime + 20);
-  },[ctime])
+    console.log(`The Computed style for Text is, ${window.getComputedStyle(center).borderColor}`)
+    console.log(`The Computed style for Video is, ${window.getComputedStyle(myvideo).currentTime}`)
+  }, [])
 
   return (
     <>
+      <h1 className="testClass">Hello World</h1>
       <video className="buddyVideo" controls onMouseOver={() => setCtime(ctime + 20)}
         src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4"
         poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
